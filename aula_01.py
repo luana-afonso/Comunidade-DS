@@ -31,17 +31,21 @@ data = pd.read_csv("datasets/kc_house_data.csv")
 
 # Exercises
 #Quantas casas estão disponíveis para compra?
-# print( data[["id","date","yr_built","yr_renovated"]].sort_values( "date", ascending=False ) )
-# R: Com os dados disponíveis não podemos responder a essa pergunta.
+# Assumindo que todas as casas estão disponíveis para compra, são quantos "ids" temos
+# R: data["id"].nunique()
 
 #Quantos atributos as casas possuem?
 # Número de colunas?
-# R: 21 atributos
+# R: 21 atributos - data e id = 19 atributos
 
 #Quais são os atributos das casas?
-# O nome das colunas (mas algumas colunas não possuem um significado muito claro
+# O nome das colunas (mas algumas colunas não possuem um significado muito claro)
 # print ( data.columns )
-# R: os atributos das casas são: 'id', 'date', 'price', 'bedrooms', 'bathrooms', 'sqft_living',
+# Mas id e data não são atributos!
+# função drop para remover colunas
+
+# data.drop( ["id", "date"], axis=1 )
+# R: os atributos das casas são: 'price', 'bedrooms', 'bathrooms', 'sqft_living',
 #        'sqft_lot', 'floors', 'waterfront', 'view', 'condition', 'grade',
 #        'sqft_above', 'sqft_basement', 'yr_built', 'yr_renovated', 'zipcode',
 #        'lat', 'long', 'sqft_living15', 'sqft_lot15'
@@ -91,6 +95,7 @@ print( data[["waterfront"]] == 1)
 
 #Das casas com vista para o mar, quantas tem 3 quartos?
 #Das casas com mais de 300 metros quadrados de sala de estar, quantas tem mais de 2 banheiros?
+
 
 
 
